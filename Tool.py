@@ -1,20 +1,12 @@
-import time
+from matplotlib import pyplot as plt 
+import numpy as np
+from PIL import Image
+im=Image.open("Injustice2.jpg")
+pxl=list(im.getdata())
+print ("pxl")
+columnsize,rowsize=im.size
 
-
-t1 = time.time()
-
-
-x = "𓀽"
-x1 = "𓀽𓀽" 
-x2 = "𓀽𓀽𓀽"
-x3 = "𓀽𓀽𓀽𓀽"
-
-
-print("𓀽")
-print("𓀽𓀽")
-print("Viavaldi:Four Seasons")
-print("Dream Theater")
-
-t2 = time.time()
-t = t2 - t1
-print("Elapsed time is : ", t, " seconds")
+a = np.array(pxl)
+plt.hist(a, bins = 255)
+plt.title("histogram") 
+plt.show()
